@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+LOCALPATH='./_site'
+REMOTEPATH='.'
+
+lftp -f "
+set dns:order 'inet'
+set ftp:ssl-allow no
+open -u $FTP_USER,$FTP_PASSWORD ftp://$FTP_HOST
+mirror --continue --reverse --delete $LOCALPATH $REMOTEPATH
+bye
+" 

@@ -33,3 +33,4 @@ exclude:
   - yarn.lock
   - README.md
   - package.json
+  - script/
